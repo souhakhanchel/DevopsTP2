@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mon-conteneur-spring:
+    image: spring-image
+    ports:
+      - "8081:8081"
+    networks:
+      - mon-reseau
+    depends_on:
+      - mon-conteneur-mongo
+  mon-conteneur-mongo:
+    image: mongo
+    networks:
+      - mon-reseau
+
+networks:
+  mon-reseau:
